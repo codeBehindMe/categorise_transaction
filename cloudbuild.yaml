@@ -1,6 +1,8 @@
 steps:
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/codeBehindMe/categorise_transaction']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build',
            '--no-cache', '-t', 'gcr.io/basic-test-proj/categorise_transaction',
            '.']
-    timeout: 500
+    timeout: 500s
