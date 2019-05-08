@@ -5,4 +5,6 @@ steps:
     args: ['build',
            '--no-cache', '-t', 'gcr.io/basic-test-proj/categorise_transaction',
            'categorise_transaction/']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/basic-test-proj/categorise_transaction']
     timeout: 500s

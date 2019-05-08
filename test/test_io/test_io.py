@@ -1,4 +1,4 @@
-# app.py
+# test_io.py
 
 # Author : aarontillekeratne
 # Date : 2019-05-08
@@ -18,26 +18,8 @@
 # You should have received a copy of the GNU General Public License
 # along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-import os
-from flask import Flask
-from src.io.gcs import GoogleCloudStorage
 
-app = Flask(__name__)
+class TestIOSystem:
 
-
-@app.route('/test')
-def test_page():
-    gcs = GoogleCloudStorage()
-
-    return f"{gcs.get_buckets()}"
-
-
-@app.route('/')
-def index():
-    target = os.environ.get('TARGET', 'World')
-
-    return f'hello {target}'
-
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+    def test_write_simple_file_to_disk(self):
+        pass
