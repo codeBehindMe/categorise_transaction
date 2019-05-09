@@ -1,4 +1,4 @@
-# app.py
+# test_gcs.py
 
 # Author : aarontillekeratne
 # Date : 2019-05-08
@@ -18,26 +18,16 @@
 # You should have received a copy of the GNU General Public License
 # along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-import os
-from flask import Flask
 from src.io.gcs import GoogleCloudStorage
 
-app = Flask(__name__)
 
+class TestGoogleCloudStorage:
 
-@app.route('/test')
-def test_page():
-    gcs = GoogleCloudStorage()
+    def test_list_buckets(self):
+        """
+        Tests to see if the list buckets works
+        :return:
+        """
+        gcs = GoogleCloudStorage()
 
-    return f"Buckets : {gcs.get_buckets()}"
-
-
-@app.route('/')
-def index():
-    target = os.environ.get('TARGET', 'World')
-
-    return f'hello {target}'
-
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+        gcs.get_buckets()
