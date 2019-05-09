@@ -30,4 +30,6 @@ class TestGoogleCloudStorage:
         """
         gcs = GoogleCloudStorage()
 
-        gcs.get_buckets()
+        buckets = list(gcs.get_buckets())
+
+        assert len(buckets) > 0
