@@ -1,10 +1,12 @@
 steps:
   - name: 'gcr.io/cloud-builders/git'
     args: ['clone', 'https://github.com/codeBehindMe/categorise_transaction']
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['checkout', '${_BRANCH}']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build',
            '--no-cache', '-t', 'gcr.io/basic-test-proj/categorise_transaction',
            'categorise_transaction/']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/basic-test-proj/categorise_transaction']
+    args: ['push', 'gcr.io/basic-test-proj/${_IMG_REPO}_categorise_transaction']
     timeout: 500s
