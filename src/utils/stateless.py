@@ -43,7 +43,7 @@ def _regex_search_bool(a: str, b: str, *args):
     return False
 
 
-def is_string_in_string(a: str, b: str, case_insensitive=True):
+def is_string_in_string(a: str, b: str, case_insensitive=True) -> bool:
     """
     Checks to see if a string is contained within another string.
     Args:

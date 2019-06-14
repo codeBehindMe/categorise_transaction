@@ -3,3 +3,5 @@ Flask
 pytest
 gunicorn
 google-cloud-storage
+watchdog
+apache-beam[gcp]
